@@ -22,11 +22,12 @@ Residents on the block were stunned at the brazen nature of the attack.
 “It's unnerving because I live down the block and take this route a lot," said stay-at-home mom Felicia Buchanan, 50. “I feel bad for the person. I'm glad the men got caught.
 
 “Maybe they need more police presence here, even just during the day. """
-z = nltk.word_tokenize(x)
-w1 = nltk.sent_tokenize(x)
-from nltk.corpus import stopwords
-text = ' '.join([word for word in x.split() if word not in (stopwords.words('english'))])
+# Any piece of article
+w1 = nltk.sent_tokenize(x) #Sentence Tockenizer
+from nltk.corpus import stopwords # Excludes Stopwords
+text = ' '.join([word for word in x.split() if word not in (stopwords.words('english'))]) # Excludes Stopwords and split
 list_pos = ['raped','rape','rapes','raping','molest','molested','sexual harassment','sexually abussed','ravish','raping','abduction']
+                        # List of words generally used in Rape-news-article 
 for i in range(len(list_pos)):
     if list_pos[i] in x:
         print("This News is about Rape")
@@ -45,13 +46,14 @@ for i in range(len(list_pos)):
             x1 = re.search(r'.*(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20).*',i,re.IGNORECASE)
             y = re.search(r'.*(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20).*',i,re.IGNORECASE)
             z = re.search(r'.*${jan:+January}${feb:+February}${mar:+March}${apr:+April}${may:+May}${jun:+June}${jul:+July}${aug:+August}${sep:+September}${oct:+October}${nov:+November}${dec:+December} ${1st:+${1st}st}${2nd:+${2nd}nd}${3rd:+${3rd}rd}${nth:+${nth}th}, ${19xx:+19${19xx}}${20xx:+20${20xx}}.*',i,re.IGNORECASE)
-            abc=[m,n,o,p,q,r,s,t,u,v,w,x1,y,z]
+            abc=[m,n,o,p,q,r,s,t,u,v,w,x1,y,z]# Pattern matching re
             for item in abc:
                 if item == None:
                     pass
                 else:
                     print(item[0])
                     break
+                    # takes the sentence contain above pattern
     else:
         print("This News is Not about Rape")
     break
