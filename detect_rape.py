@@ -23,7 +23,7 @@ Residents on the block were stunned at the brazen nature of the attack.
 
 “Maybe they need more police presence here, even just during the day. """
 # Any piece of article
-w1 = nltk.sent_tokenize(x) #Sentence Tockenizer
+w1 = nltk.sent_tokenize(x) #Sentence Tokenizer
 from nltk.corpus import stopwords # Excludes Stopwords
 text = ' '.join([word for word in x.split() if word not in (stopwords.words('english'))]) # Excludes Stopwords and split
 list_pos = ['raped','rape','rapes','raping','molest','molested','sexual harassment','sexually abussed','ravish','raping','abduction']
